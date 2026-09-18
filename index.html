@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#751f3b" />
+  <meta name="description" content="A little peace offering, made especially for Aduke Mi." />
+  <title>For Aduke Mi 🌹</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🌹%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --wine: #6f1736;
+      --berry: #a52b55;
+      --rose: #e94b7d;
+      --blush: #ffd7e4;
+      --cream: #fff7f4;
+      --ink: #3d1730;
+      --muted: #795467;
+      --gold: #d5a84c;
+      --shadow: 0 24px 70px rgba(89, 17, 48, .22);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: "DM Sans", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.9) 0 4%, transparent 24%),
+        radial-gradient(circle at 85% 85%, rgba(233,75,125,.22), transparent 29%),
+        linear-gradient(145deg, #fff8f5 0%, #ffdce8 50%, #f7b9ce 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .28;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cpath d='M42 58C19 44 22 24 34 24c5 0 8 3 8 8 0-5 3-8 8-8 12 0 15 20-8 34Z' fill='none' stroke='%23b62b59' stroke-width='1.2' opacity='.28'/%3E%3C/svg%3E");
+    }
+
+    button { font: inherit; }
+
+    .app {
+      position: relative;
+      width: 100%;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      isolation: isolate;
+    }
+
+    .petals { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+    .petal {
+      position: absolute;
+      top: -12vh;
+      color: rgba(182, 43, 89, .36);
+      font-size: clamp(14px, 2.2vw, 24px);
+      animation: fall linear infinite;
+    }
+    .petal:nth-child(1) { left: 8%; animation-duration: 11s; animation-delay: -3s; }
+    .petal:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: -9s; }
+    .petal:nth-child(3) { left: 44%; animation-duration: 12s; animation-delay: -5s; }
+    .petal:nth-child(4) { left: 68%; animation-duration: 16s; animation-delay: -12s; }
+    .petal:nth-child(5) { left: 89%; animation-duration: 13s; animation-delay: -7s; }
+    @keyframes fall { to { transform: translate3d(70px, 118vh, 0) rotate(440deg); } }
+
+    .card {
+      width: min(680px, 100%);
+      min-height: min(700px, calc(100dvh - 44px));
+      max-height: calc(100dvh - 44px);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.76);
+      border-radius: 34px;
+      box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.85);
+      background: rgba(255, 248, 247, .78);
+      backdrop-filter: blur(18px);
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: clamp(28px, 7vw, 62px);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(28px) scale(.985);
+      transition: opacity .5s ease, transform .55s cubic-bezier(.2,.8,.2,1), visibility .5s;
+      overflow-y: auto;
+    }
+
+    .screen.active { opacity: 1; visibility: visible; transform: translateX(0) scale(1); }
+    .screen.leaving { transform: translateX(-28px) scale(.985); }
+    .content { width: 100%; text-align: center; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(165,43,85,.16);
+      color: var(--berry);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1, h2 {
+      margin: 22px auto 14px;
+      max-width: 540px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -.035em;
+      line-height: 1.03;
+    }
+    h1 { font-size: clamp(3rem, 10vw, 5.4rem); }
+    h2 { font-size: clamp(2.35rem, 8vw, 4.25rem); }
+    h1 em, h2 em { color: var(--berry); font-weight: 600; }
+
+    .lead {
+      margin: 0 auto;
+      max-width: 470px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.7vw, 1.15rem);
+      line-height: 1.65;
+    }
+
+    .question-mark { display: inline-block; color: var(--rose); animation: bob 1.8s ease-in-out infinite; }
+    @keyframes bob { 50% { transform: translateY(-7px) rotate(6deg); } }
+
+    .choice-zone {
+      position: relative;
+      height: 150px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      min-width: 138px;
+      min-height: 54px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 25px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:focus-visible { outline: 3px solid rgba(111,23,54,.32); outline-offset: 4px; }
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--wine), var(--berry));
+      box-shadow: 0 13px 28px rgba(111,23,54,.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 17px 33px rgba(111,23,54,.31); }
+    .btn-soft { color: var(--wine); background: white; border: 1px solid rgba(111,23,54,.16); }
+
+    #noBtn { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); }
+    #noBtn:hover { transform: translateX(-50%) translateY(-2px); }
+    #yesBtn {
+      position: absolute;
+      left: calc(50% - 162px);
+      top: 2px;
+      color: var(--berry);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(165,43,85,.18);
+      transition: left .2s ease, top .2s ease, transform .2s ease;
+    }
+    .tease { min-height: 24px; margin: 2px 0 0; color: var(--berry); font-size: .9rem; font-weight: 600; }
+
+    .rose-seal {
+      width: 86px;
+      height: 86px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      border-radius: 50%;
+      font-size: 2.8rem;
+      background: linear-gradient(145deg, #fff, #ffd3e0);
+      border: 1px solid rgba(165,43,85,.14);
+      box-shadow: 0 18px 38px rgba(111,23,54,.15);
+      animation: breathe 2.6s ease-in-out infinite;
+    }
+    @keyframes breathe { 50% { transform: scale(1.06) rotate(-3deg); } }
+
+    .promise {
+      margin: 26px auto;
+      max-width: 460px;
+      padding: 16px 20px;
+      border-radius: 18px;
+      color: var(--wine);
+      background: rgba(255,255,255,.63);
+      border: 1px solid rgba(165,43,85,.12);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.12rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 26px 0 20px;
+    }
+    .note {
+      min-height: 170px;
+      position: relative;
+      border: 1px solid rgba(165,43,85,.13);
+      border-radius: 20px;
+      padding: 18px 13px;
+      cursor: pointer;
+      color: var(--wine);
+      background: rgba(255,255,255,.7);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      perspective: 800px;
+    }
+    .note:hover { transform: translateY(-5px) rotate(-1deg); box-shadow: 0 15px 30px rgba(111,23,54,.12); }
+    .note:nth-child(2):hover { transform: translateY(-5px) rotate(1deg); }
+    .note .closed, .note .opened { position: absolute; inset: 14px; display: grid; place-items: center; transition: opacity .3s ease, transform .35s ease; }
+    .note .closed { font-weight: 700; }
+    .note .closed span { display: block; font-size: 2.1rem; margin-bottom: 7px; }
+    .note .opened { opacity: 0; transform: rotateY(90deg); font-family: "Playfair Display", Georgia, serif; line-height: 1.42; font-size: 1.05rem; }
+    .note.open { background: #fff4f7; }
+    .note.open .closed { opacity: 0; transform: rotateY(-90deg); }
+    .note.open .opened { opacity: 1; transform: rotateY(0); }
+
+    .final-screen { padding: 0; }
+    .final-wrap { width: 100%; height: 100%; min-height: inherit; display: grid; grid-template-columns: 1fr 1fr; }
+    .final-art {
+      min-height: 320px;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(65,10,34,.05), rgba(65,10,34,.24)),
+        url("aduke-love-note-purple.png");
+      background-size: cover;
+      background-position: center;
+    }
+    .final-copy { display: grid; place-items: center; padding: 38px; background: rgba(255,248,247,.93); }
+    .final-copy h2 { font-size: clamp(2.35rem, 6vw, 3.6rem); }
+    .signature { margin: 24px 0; color: var(--berry); font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; font-style: italic; }
+    .future-note {
+      margin: 22px 0 0;
+      padding: 15px 17px;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 14px 14px 0;
+      color: var(--wine);
+      background: rgba(255, 215, 228, .38);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .spark {
+      position: absolute;
+      color: var(--gold);
+      animation: twinkle 1.8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .spark.s1 { top: 9%; left: 10%; font-size: 1.3rem; }
+    .spark.s2 { top: 15%; right: 9%; font-size: .9rem; animation-delay: -.8s; }
+    .spark.s3 { bottom: 9%; right: 14%; font-size: 1.1rem; animation-delay: -.3s; }
+    @keyframes twinkle { to { opacity: .25; transform: scale(.65) rotate(30deg); } }
+
+    @media (max-width: 620px) {
+      .app { padding: 12px; }
+      .card { min-height: calc(100dvh - 24px); max-height: calc(100dvh - 24px); border-radius: 25px; }
+      .screen { padding: 26px 22px; }
+      h1 { font-size: clamp(3rem, 16vw, 4.5rem); }
+      .notes-grid { grid-template-columns: 1fr; max-height: 320px; overflow-y: auto; padding: 4px; }
+      .note { min-height: 118px; }
+      .final-wrap { grid-template-columns: 1fr; grid-template-rows: .78fr 1.22fr; }
+      .final-art { min-height: 0; }
+      .final-copy { padding: 26px 24px; }
+      .final-copy h2 { margin-top: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .screen { transition-duration: .01ms; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="petals" aria-hidden="true">
+      <span class="petal">♥</span><span class="petal">♥</span><span class="petal">♥</span><span class="petal">♥</span><span class="petal">♥</span>
+    </div>
+
+    <section class="card" aria-live="polite">
+      <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span>
+
+      <div class="screen active" id="screen-question">
+        <div class="content">
+          <span class="eyebrow">A tiny, serious question</span>
+          <h1>Aduke Mi,<br>are you <em>angry</em> with me<span class="question-mark">?</span></h1>
+          <p class="lead">Please answer carefully. One of these buttons appears to have trust issues.</p>
+          <div class="choice-zone" id="choiceZone">
+            <button class="btn" id="yesBtn" type="button" aria-label="Yes — this button playfully moves away">Yes 😤</button>
+            <button class="btn btn-primary" id="noBtn" type="button">No, I’m not 🤍</button>
+          </div>
+          <p class="tease" id="tease" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-relief">
+        <div class="content">
+          <div class="rose-seal" aria-hidden="true">🌹</div>
+          <span class="eyebrow" style="margin-top:24px">Peace restored</span>
+          <h2>Thank you for not being angry with me.</h2>
+          <p class="lead">I was already preparing a five-page apology, a peace treaty, and emergency chocolate.</p>
+          <div class="promise">“Your smile is much too beautiful to be interrupted by a frown.”</div>
+          <button class="btn btn-primary" type="button" data-next="screen-notes">What next? →</button>
+        </div>
+      </div>
+
+      <div class="screen" id="screen-notes">
+        <div class="content">
+          <span class="eyebrow">Three little truths</span>
+          <h2>Pick a love note, <em>Aduke Mi</em>.</h2>
+          <p class="lead">Tap each envelope. I may have hidden something sweet inside.</p>
+          <div class="notes-grid">
+            <button class="note" type="button" aria-label="Open love note one">
+              <span class="closed"><span>💌</span>Open me</span>
+              <span class="opened">You make ordinary moments feel like something worth remembering.</span>
+            </button>
+            <button class="note" type="button" aria-label="Open love note two">
+              <span class="closed"><span>💗</span>Me too</span>
+              <span class="opened">Your smile has a very unfair advantage over my composure.</span>
+            </button>
+            <button class="note" type="button" aria-label="Open love note three">
+              <span class="closed"><span>🌷</span>And me</span>
+              <span class="opened">Even when words get clumsy, my heart is always gentle with you.</span>
+            </button>
+          </div>
+          <button class="btn btn-primary" id="finalBtn" type="button" data-next="screen-final" hidden>One more thing…</button>
+        </div>
+      </div>
+
+      <div class="screen final-screen" id="screen-final">
+        <div class="final-wrap">
+          <div class="final-art" id="finalArt" role="img" aria-label="Roses and a love letter"></div>
+          <div class="final-copy">
+            <div>
+              <span class="eyebrow">My Gemini Queen ♊</span>
+              <h2>In every version of today, I’m still <em>choosing you</em>.</h2>
+              <p class="lead">No anger, no awkward moment, and no runaway button could change that.</p>
+              <p class="future-note">I need you—the mother of my unborn Olabanji Jr.—beside me for all the chapters still to come.</p>
+              <p class="signature">For Aduke Mi, with love 🌹</p>
+              <button class="btn btn-soft" id="restartBtn" type="button">Read it again ↺</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const screens = [...document.querySelectorAll('.screen')];
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const choiceZone = document.getElementById('choiceZone');
+    const tease = document.getElementById('tease');
+    const notes = [...document.querySelectorAll('.note')];
+    const finalBtn = document.getElementById('finalBtn');
+    let dodgeCount = 0;
+
+    const teasingLines = [
+      'Hmm… that answer seems unavailable 😇',
+      'Nice try. The button said no.',
+      'It is suddenly very shy.',
+      'Perhaps the other answer is more accurate? 👀',
+      'Okay, okay — I think we both know the truth.'
+    ];
+
+    function showScreen(id) {
+      const current = document.querySelector('.screen.active');
+      const next = document.getElementById(id);
+      if (!next || current === next) return;
+      current.classList.add('leaving');
+      current.classList.remove('active');
+      window.setTimeout(() => current.classList.remove('leaving'), 520);
+      next.classList.add('active');
+      const focusable = next.querySelector('button');
+      if (focusable) window.setTimeout(() => focusable.focus({ preventScroll: true }), 560);
+    }
+
+    function dodgeYes(event) {
+      if (event) event.preventDefault();
+      const maxX = Math.max(0, choiceZone.clientWidth - yesBtn.offsetWidth);
+      const maxY = Math.max(0, choiceZone.clientHeight - yesBtn.offsetHeight);
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+      yesBtn.style.left = `${x}px`;
+      yesBtn.style.top = `${y}px`;
+      dodgeCount += 1;
+      tease.textContent = teasingLines[Math.min(dodgeCount - 1, teasingLines.length - 1)];
+    }
+
+    ['pointerenter', 'pointerdown', 'focus', 'click'].forEach(evt => yesBtn.addEventListener(evt, dodgeYes));
+    yesBtn.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') dodgeYes(event);
+    });
+    noBtn.addEventListener('click', () => showScreen('screen-relief'));
+    document.querySelectorAll('[data-next]').forEach(button => button.addEventListener('click', () => showScreen(button.dataset.next)));
+
+    notes.forEach(note => {
+      note.addEventListener('click', () => {
+        note.classList.toggle('open');
+        const opened = notes.filter(item => item.classList.contains('open')).length;
+        if (opened > 0) finalBtn.hidden = false;
+        note.setAttribute('aria-label', note.classList.contains('open') ? 'Close this love note' : 'Open this love note');
+      });
+    });
+
+    document.getElementById('restartBtn').addEventListener('click', () => {
+      notes.forEach(note => note.classList.remove('open'));
+      finalBtn.hidden = true;
+      yesBtn.removeAttribute('style');
+      tease.textContent = '';
+      dodgeCount = 0;
+      showScreen('screen-question');
+    });
+  </script>
+</body>
+</html>
